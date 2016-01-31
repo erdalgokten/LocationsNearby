@@ -129,9 +129,14 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     }
 
     @Override
-    public void refreshContents(List<VenueItem> venueItems) {
+    public void refreshContents(boolean isSuccessful, List<VenueItem> venueItems) {
         this.venueItems.clear();
-        this.venueItems.addAll(venueItems);
+        if (isSuccessful) {
+            this.venueItems.addAll(venueItems);
+        } else {
+            searchView.clearFocus();
+            Toast.makeText(this, "There was a problem retrieving data", Toast.LENGTH_SHORT).show();
+        }
         venueAdapter.notifyDataSetChanged();
     }
 }

@@ -46,9 +46,10 @@ public class AsyncHandler extends AsyncTask<Void, Void, Integer> {
     }
 
     protected void onPostExecute(Integer result) {
-        if (!isCancelled() && result == 0)
-            refreshable.refreshContents(venueItems);
-        else
+        if (isCancelled()){
             Log.v(TAG, "No need to refresh search results");
+        } else {
+            refreshable.refreshContents(result == 0, venueItems);
+        }
     }
 }
