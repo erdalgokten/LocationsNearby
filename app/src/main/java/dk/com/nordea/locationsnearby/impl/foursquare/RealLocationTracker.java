@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import dk.com.nordea.locationsnearby.Constants;
 import dk.com.nordea.locationsnearby.LocationTracker;
 
 /**

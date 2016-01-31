@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import dk.com.nordea.locationsnearby.Constants;
 import dk.com.nordea.locationsnearby.DataWorker;
 import dk.com.nordea.locationsnearby.JsonHelper;
 import dk.com.nordea.locationsnearby.VenueItem;
