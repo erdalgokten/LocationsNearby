@@ -1,4 +1,4 @@
-# LocationsNearby
+# Locations Nearby
 Android app to search locations based on the current location
 
 Development environment:
