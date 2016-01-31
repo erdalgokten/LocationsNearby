@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
