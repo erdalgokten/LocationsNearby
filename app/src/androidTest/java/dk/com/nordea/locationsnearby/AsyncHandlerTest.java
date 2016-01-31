@@ -28,7 +28,7 @@ public class AsyncHandlerTest {
         String query = "sushi";
         Refreshable refreshable = new Refreshable() {
             @Override
-            public void refreshContents(List<VenueItem> venueItems) {
+            public void refreshContents(boolean isSuccessful, List<VenueItem> venueItems) {
                 count = venueItems.size();
             }
         };
