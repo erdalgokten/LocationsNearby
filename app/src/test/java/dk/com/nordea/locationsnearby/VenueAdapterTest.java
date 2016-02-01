@@ -1,26 +1,30 @@
 package dk.com.nordea.locationsnearby;
 
+import android.content.Context;
+
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by erdal on 1.2.2016.
  */
 public class VenueAdapterTest {
 
-    //@Mock
-    //Context mockContext;
-
     @Test
     public void GetElementCount(){
-        Assert.assertTrue(true);
-        /*
+        Context context = Mockito.mock(Context.class);
         List<VenueItem> venueItems = new ArrayList<VenueItem>();
         venueItems.add(new VenueItem("1", "Sushico", "San Fransisco", "130000"));
-        VenueAdapter venueAdapter = new VenueAdapter(mockContext, venueItems);
+        VenueAdapter venueAdapter = new VenueAdapter(context, venueItems);
+
+        Assert.assertNotNull(venueAdapter);
+
         int count = venueAdapter.getCount();
 
         Assert.assertTrue(count == 1);
-        */
     }
 }
