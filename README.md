@@ -3,6 +3,7 @@ Android app to search locations based on the current location
 
 Development environment:
 - Android Studio 1.5.1 with JRE 1.8.0_05-b13 amd64
+- Minimum SDK: API 15: Android 4.0.3 (IceCreamSandwich)
 
 Notes:
 - Application specific configurations are in Constants.java for simplicity
