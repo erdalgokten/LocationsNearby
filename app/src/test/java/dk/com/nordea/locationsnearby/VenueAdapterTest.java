@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
+import dk.com.nordea.locationsnearby.impl.foursquare.RealVenueItem;
+
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -20,7 +22,7 @@ public class VenueAdapterTest {
     public void GetElementCount(){
         Context context = Mockito.mock(Context.class);
         List<VenueItem> venueItems = new ArrayList<VenueItem>();
-        venueItems.add(new VenueItem("1", "Sushico", "San Fransisco", "130000"));
+        venueItems.add(new RealVenueItem("1", "Sushico", "San Fransisco", "130000"));
         VenueAdapter venueAdapter = new VenueAdapter(context, venueItems);
 
         Assert.assertNotNull(venueAdapter);
