@@ -64,6 +64,6 @@ public class SearchLocationsBehaviorTest {
             }
         }));
 
-        //onData(instanceOf(VenueItem.class)).inAdapterView(allOf(withId(R.id.listView), isDisplayed())).atPosition(1).check(matches(isDisplayed()));
+        //onData(instanceOf(RealVenueItem.class)).inAdapterView(allOf(withId(R.id.listView), isDisplayed())).atPosition(1).check(matches(isDisplayed()));
     }
 }
