@@ -12,9 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import dk.com.nordea.locationsnearby.impl.foursquare.RealConnectionTracker;
-import dk.com.nordea.locationsnearby.impl.foursquare.RealDataWorker;
-import dk.com.nordea.locationsnearby.impl.foursquare.RealLocationTracker;
+import dk.com.nordea.locationsnearby.impl.RealConnectionTracker;
+import dk.com.nordea.locationsnearby.impl.RealLocationTracker;
+import dk.com.nordea.locationsnearby.impl.foursquare.FSDataWorker;
 
 /**
  * Created by erdal on 30.1.2016.
@@ -40,7 +40,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
         locTracker = new RealLocationTracker(this);
         connTracker = new RealConnectionTracker(this);
-        dataWorker = new RealDataWorker();
+        dataWorker = new FSDataWorker();
 
         searchView = (SearchView) findViewById(R.id.searchView);
         listView = (ListView) findViewById(R.id.listView);

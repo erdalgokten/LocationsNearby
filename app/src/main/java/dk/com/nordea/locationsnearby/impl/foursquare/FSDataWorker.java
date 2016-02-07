@@ -17,9 +17,9 @@ import dk.com.nordea.locationsnearby.VenueItemFactory;
 /**
  * Created by erdal on 31.1.2016.
  */
-public class RealDataWorker implements DataWorker {
+public class FSDataWorker implements DataWorker {
 
-    private static final String TAG = RealDataWorker.class.getName();
+    private static final String TAG = FSDataWorker.class.getName();
 
     @Override
     public boolean loadData(String query, double latitude, double longitude, List<VenueItem> venueItems) throws Exception {
@@ -35,7 +35,7 @@ public class RealDataWorker implements DataWorker {
 
         JSONObject joRaw = new JSONObject(json);
 
-        venueItems.addAll(VenueItemFactory.fromJSONObjectToList(RealVenueItem.class, joRaw));
+        venueItems.addAll(VenueItemFactory.fromJSONObjectToList(FSVenueItem.class, joRaw));
 
         return true;
     }

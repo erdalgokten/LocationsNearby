@@ -1,4 +1,4 @@
-package dk.com.nordea.locationsnearby.impl.foursquare;
+package dk.com.nordea.locationsnearby.impl;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
