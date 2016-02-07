@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
+
 /**
  * Created by erdal on 1.2.2016.
  */
@@ -25,6 +27,6 @@ public class VenueAdapterTest {
 
         int count = venueAdapter.getCount();
 
-        Assert.assertTrue(count == 1);
+        Assert.assertThat(count, is(1));
     }
 }
