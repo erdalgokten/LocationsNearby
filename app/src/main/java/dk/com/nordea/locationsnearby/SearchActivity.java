@@ -136,14 +136,32 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     @Override
     public void refreshContents(boolean isSuccessful, List<VenueItem> venueItems) {
-        this.venueItems.clear();
         if (isSuccessful) {
-            this.venueItems.addAll(venueItems);
+            insertItemsOptimized(venueItems, this.venueItems);
         } else {
+            this.venueItems.clear();
             searchView.clearFocus();
             Toast.makeText(this, "There was a problem retrieving data", Toast.LENGTH_SHORT).show();
         }
         progressBar.setVisibility(View.INVISIBLE);
         venueAdapter.notifyDataSetChanged();
+    }
+
+    private void insertItemsOptimized(List<VenueItem> source, List<VenueItem> target){
+        if (source == null || source.size() == 0) {
+            target.clear();
+        } else {
+            for (int i = 0; i < source.size(); i++) {
+                if (target.size() <= i)
+                    target.add(source.get(i));
+                else if (!source.get(i).getVenueID().equals(target.get(i).getVenueID()))
+                    target.add(i, source.get(i));
+                else
+                    Log.v(TAG, "No need to insert");
+            }
+            while(target.size() > source.size()){
+                target.remove(target.size() - 1);
+            }
+        }
     }
 }
