@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private SearchView searchView;
     private ListView listView;
+    private ProgressBar progressBar;
     private VenueAdapter venueAdapter;
     private List<VenueItem> venueItems;
     private AsyncHandler asyncHandler = null;
@@ -44,6 +47,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
         searchView = (SearchView) findViewById(R.id.searchView);
         listView = (ListView) findViewById(R.id.listView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         venueItems = new ArrayList<VenueItem>();
         venueAdapter = new VenueAdapter(SearchActivity.this, venueItems);
@@ -116,12 +120,14 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private boolean performSearch(String query){
         if (query.trim().length() > Constants.MIN_REQUIRED_CHAR_COUNT) {
+            progressBar.setVisibility(View.VISIBLE);
             if (asyncHandler != null)
                 asyncHandler.cancel(true);
 
             if (connTracker.isConnected() && locTracker.canGetLocation())
                 asyncHandler = (AsyncHandler) new AsyncHandler(query, this, locTracker, dataWorker).execute();
         } else {
+            progressBar.setVisibility(View.INVISIBLE);
             venueItems.clear();
             venueAdapter.notifyDataSetChanged();
         }
@@ -137,6 +143,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
             searchView.clearFocus();
             Toast.makeText(this, "There was a problem retrieving data", Toast.LENGTH_SHORT).show();
         }
+        progressBar.setVisibility(View.INVISIBLE);
         venueAdapter.notifyDataSetChanged();
     }
 }
